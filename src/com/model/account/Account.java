@@ -5,6 +5,15 @@ public class Account {
     private String firstName;
     private String lastName;
     private double balance;
+    private String bank;
+
+    public String getBank() {
+        return bank;
+    }
+
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
 
     public void setBalance(double balance) {
         this.balance = balance;
@@ -37,13 +46,15 @@ public class Account {
             String firstName,
             String lastName,
             double balance,
-            String currency
+            String currency,
+            String bank
     ) {
         this.accountNumber = accountNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.balance = balance;
         this.currency = currency;
+        this.bank = bank;
     }
 
     public void printAccountDetails() {

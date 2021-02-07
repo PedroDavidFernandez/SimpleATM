@@ -2,7 +2,6 @@ package com.atm;
 
 import com.model.account.Account;
 import com.model.card.Credit;
-import com.model.card.Debit;
 
 public class ATMDriver {
     public static void main(String[] args) {
@@ -11,7 +10,8 @@ public class ATMDriver {
                 "Tom",
                 "Hanks",
                 15000.00,
-                "USD"
+                "USD",
+                "WELLS FARGO"
         );
 
         Credit card = new Credit(
