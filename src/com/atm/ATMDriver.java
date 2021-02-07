@@ -1,6 +1,7 @@
 package com.atm;
 
 import com.model.account.Account;
+import com.model.card.Credit;
 import com.model.card.Debit;
 
 public class ATMDriver {
@@ -13,15 +14,16 @@ public class ATMDriver {
                 "USD"
         );
 
-        Debit card = new Debit(
+        Credit card = new Credit(
                 938004555,
                 "TOM HANKS",
                 "12/23",
                 745,
-                "WELLS FARGO"
+                "WELLS FARGO",
+                25000
                 );
 
-        ATM atm = new ATM(account);
-        atm.display();
+        ATM atm2 = new ATM(account, card);
+        atm2.display();
     }
 }
