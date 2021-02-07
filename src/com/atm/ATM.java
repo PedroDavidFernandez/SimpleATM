@@ -37,6 +37,7 @@ public class ATM {
 
         do {
             double amount = 0;
+            String response = "";
             boolean isANumber = scanner.hasNextInt();
             if (!isANumber) {
                 return;
@@ -48,33 +49,30 @@ public class ATM {
                     System.out.println("Amount: ");
                     amount = scanner.nextDouble();
                     deposit(amount);
-                    System.out.println("Do you wish to do another operation? Y/N");
-                    Scanner scanner2 = new Scanner(System.in);
-                    String response = scanner2.next();
-                    if (response.equals("Y")) {
-                        display();
-                    }
+                    askClientIfAnotherOperationIsNeeded();
                     return;
                 case 2:
                     System.out.println("Amount: ");
                     amount = scanner.nextDouble();
                     withdraw(amount);
+                    askClientIfAnotherOperationIsNeeded();
                     return;
                 case 3:
                     System.out.println("Amount: ");
                     amount = scanner.nextDouble();
                     deposit(amount, this.card);
+                    askClientIfAnotherOperationIsNeeded();
                     return;
                 case 4:
                     System.out.println("Your current account balance is: " + this.account.getBalance());
+                    askClientIfAnotherOperationIsNeeded();
                     return;
                 case 5:
                     System.out.println("Your current credit card balance is: " + this.card.getCredit());
+                    askClientIfAnotherOperationIsNeeded();
                     return;
                 default:
-                    System.out.println("Option is not valid!");
-                    System.out.println("Hope to see you soon at bank " + this.account.getBank());
-                    System.out.println("Press letter to exit");
+                    askClientIfAnotherOperationIsNeeded();
             }
         } while (!scanner.hasNextInt());
         scanner.close();
@@ -97,6 +95,18 @@ public class ATM {
         }
         this.account.setBalance(this.account.getBalance() - amount);
         System.out.println("Your current balance is: " + this.account.getBalance());
+    }
+
+    private void askClientIfAnotherOperationIsNeeded() {
+        String response;
+        System.out.println("Do you wish to do another operation? Y/N");
+        Scanner scannerResponse = new Scanner(System.in);
+        response = scannerResponse.next();
+        if (response.equalsIgnoreCase("y")) {
+            display();
+        } else {
+            scannerResponse.close();
+        }
     }
 
     public void atmSerialNumber() {
