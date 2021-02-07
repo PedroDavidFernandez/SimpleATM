@@ -48,6 +48,12 @@ public class ATM {
                     System.out.println("Amount: ");
                     amount = scanner.nextDouble();
                     deposit(amount);
+                    System.out.println("Do you wish to do another operation? Y/N");
+                    Scanner scanner2 = new Scanner(System.in);
+                    String response = scanner2.next();
+                    if (response.equals("Y")) {
+                        display();
+                    }
                     return;
                 case 2:
                     System.out.println("Amount: ");
