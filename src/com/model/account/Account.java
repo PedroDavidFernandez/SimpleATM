@@ -5,6 +5,11 @@ public class Account {
     private String firstName;
     private String lastName;
     private double balance;
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     private String currency;
 
     public String getAccountNumber() {

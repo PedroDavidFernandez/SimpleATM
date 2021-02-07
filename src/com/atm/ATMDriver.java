@@ -9,7 +9,7 @@ public class ATMDriver {
                 "000489234-SD",
                 "Tom",
                 "Hanks",
-                15000.73,
+                15000.00,
                 "USD"
         );
 
@@ -21,8 +21,7 @@ public class ATMDriver {
                 "WELLS FARGO"
                 );
 
-        ATM atm = new ATM(account, card);
-        atm.printAccountDetails();
-        atm.printCardDetails();
+        ATM atm = new ATM(account);
+        atm.display();
     }
 }
