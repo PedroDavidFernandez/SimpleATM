@@ -84,8 +84,8 @@ public class ATM {
     }
 
     private void deposit(double amount, Credit card) {
-        this.account.setBalance(amount + card.getCredit());
-        System.out.println("Your current balance is: " + this.account.getBalance());
+        this.card.setCredit(amount + card.getCredit());
+        System.out.println("Your current credit card balance is: " + this.card.getCredit());
     }
 
     private void withdraw(double amount) {
