@@ -28,8 +28,10 @@ public class ATM {
         System.out.println("Please select one of the following options." +
                 " Press a letter key to exit, please.");
         System.out.println("Press 1 to deposit cash: ");
+        System.out.println("Press 2 to withdraw cash: ");
 
         do {
+            double amount = 0;
             boolean isANumber = scanner.hasNextInt();
             if (!isANumber) {
                 System.out.println("por aqui");
@@ -40,8 +42,13 @@ public class ATM {
             switch (number) {
                 case 1:
                     System.out.println("Amount: ");
-                    double amount = scanner.nextDouble();
+                    amount = scanner.nextDouble();
                     deposit(amount);
+                    return;
+                case 2:
+                    System.out.println("Amount: ");
+                    amount = scanner.nextDouble();
+                    withdraw(amount);
                     return;
                 default:
                     System.out.println("nothing to do");
@@ -52,7 +59,16 @@ public class ATM {
     }
 
     private void deposit(double amount) {
-        this.account.setBalance((double) amount + this.account.getBalance());
+        this.account.setBalance(amount + this.account.getBalance());
+        System.out.println("Your current balance is: " + this.account.getBalance());
+    }
+
+    private void withdraw(double amount) {
+        if (amount > this.account.getBalance()) {
+            System.out.println("Amount is higher than current balance");
+            return;
+        }
+        this.account.setBalance(this.account.getBalance() - amount);
         System.out.println("Your current balance is: " + this.account.getBalance());
     }
 
